@@ -14,7 +14,7 @@ public class CCR {
             {
                 for (int i = 0; i < a.size(); i++)
                 {
-                    if (a.get(i).toString() == strA && b.get(i).toString() == strB)
+                    if (a.get(i).toString().compareTo(strA) == 0 && b.get(i).toString().compareTo(strB) == 0)
                     {
                         num = i;
                         break;
