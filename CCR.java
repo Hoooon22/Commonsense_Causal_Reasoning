@@ -12,14 +12,9 @@ public class CCR {
         try {
             if (a.contains(strA) && b.contains(strB)) 
             {
-                String arrayStrA = new String();
-                String arrayStrB = new String();
-
                 for (int i = 0; i < a.size(); i++)
                 {
-                    arrayStrA = String.valueOf(a.get(i));
-                    arrayStrB = String.valueOf(b.get(i));
-                    if (arrayStrA == strA && arrayStrB == strB)
+                    if (a.get(i).toString() == strA && b.get(i).toString() == strB)
                     {
                         num = i;
                         break;
