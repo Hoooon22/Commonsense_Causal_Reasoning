@@ -1,3 +1,4 @@
+import java.util.*;
 import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,48 +8,38 @@ import java.io.IOException;
 public class CCR {
     public static void main(String[] args) 
     {
-		int lineCnt = 0;
-        String temp;
-        String[] result = new String[3];
-        File f = new File("Causal.txt");
-        // 파일 존재 여부 판단
+        ArrayList<String> a = new ArrayList<String>();
+        ArrayList<String> b = new ArrayList<String>();
+        ArrayList<Integer> freq = new ArrayList<Integer>();
+        File f = new File("CausalNet.txt");
+
+        // File exist
         if (f.isFile()) 
         {
-            System.out.println("Causal.txt O");
+            System.out.println("CausalNet.txt O");
         }
         else
         {
-            System.out.println("Causal.txt X");
+            System.out.println("CausalNet.txt X");
         }
 
         // File Read
         try{
-            FileReader rw = new FileReader("Causal.txt");
+            FileReader rw = new FileReader("CausalNet.txt");
             BufferedReader br = new BufferedReader( rw );
 
-            // line Count
-            while(br.readLine() != null) 
-            {
-                lineCnt++;
-            }
-            String[] a = new String[lineCnt]; 
-            String[] b = new String[lineCnt]; 
-            int[] freq = new int[lineCnt];
-
-            br = new BufferedReader( rw ); // Reread
-
-            // arrange
-            lineCnt = 0;
+            String temp;
+            String[] result = new String[3];
             while((temp = br.readLine()) != null) 
             {
+                System.out.println(temp);
                 result = temp.split("\\s");
-                a[lineCnt] = result[0];
-                b[lineCnt] = result[1];
-                freq[lineCnt] = Integer.parseInt(result[3]);
-                lineCnt++;
+                a.add(result[0]);
+                b.add(result[1]);
+                freq.add(Integer.parseInt(result[3]));
             }
 
-            System.out.printf("%s, %s, %d\n", a[1], b[1], freq[1]);
+            System.out.printf("%s, %s, %d\n", a.get(1), b.get(1), freq.get(1));
 
         }catch ( IOException e ) {
             System.out.println(e);
