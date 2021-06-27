@@ -37,9 +37,6 @@ public class CCR {
                 b.add(result[1]);
                 freq.add(Integer.parseInt(result[2]));
             }
-
-            System.out.printf("%s, %s, %d\n", a.get(1), b.get(1), freq.get(1));
-
         }catch ( IOException e ) {
             System.out.println(e);
         } 
