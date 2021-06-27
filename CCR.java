@@ -8,25 +8,26 @@ public class CCR {
     public int getFreq(ArrayList<String> a, ArrayList<String> b, ArrayList<Integer> freq, String strA, String strB)
     {
         int num = -1; // If no value, return -1
-        int i = 0;
-        if (a.contains(strA) && b.contains(strB)) 
-        {
-            while(i < a.size())
+
+        try {
+            if (a.contains(strA) && b.contains(strB)) 
             {
-                if (a.get(i) == strA && b.get(i) == strB)
+                String arrayStrA = new String();
+                String arrayStrB = new String();
+
+                for (int i = 0; i < a.size(); i++)
                 {
-                    num = i;
-                    break;
-                }
-                else
-                {
-                    i++;
+                    arrayStrA = String.valueOf(a.get(i));
+                    arrayStrB = String.valueOf(b.get(i));
+                    if (arrayStrA == strA && arrayStrB == strB)
+                    {
+                        num = i;
+                        break;
+                    }
                 }
             }
-        } 
-        else 
-        {
-            num = -1;
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
         return num;
@@ -63,13 +64,14 @@ public class CCR {
                 b.add(result[1]);
                 freq.add(Integer.parseInt(result[2]));
             }
+            System.out.println("Read Done.");
         }catch ( IOException e ) {
             System.out.println(e);
         } 
 
         // freq index
         CCR myCCR = new CCR();
-        System.out.println(myCCR.getFreq(a, b, freq, "cleveland", "debt"));
+        System.out.println(myCCR.getFreq(a, b, freq, "cleveland", "debate"));
     }
 }
 
