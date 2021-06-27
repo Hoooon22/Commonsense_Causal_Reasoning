@@ -32,11 +32,10 @@ public class CCR {
             String[] result = new String[3];
             while((temp = br.readLine()) != null) 
             {
-                System.out.println(temp);
                 result = temp.split("\\s");
                 a.add(result[0]);
                 b.add(result[1]);
-                freq.add(Integer.parseInt(result[3]));
+                freq.add(Integer.parseInt(result[2]));
             }
 
             System.out.printf("%s, %s, %d\n", a.get(1), b.get(1), freq.get(1));
