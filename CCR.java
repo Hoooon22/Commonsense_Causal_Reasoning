@@ -33,21 +33,21 @@ public class CCR {
         ArrayList<String> a = new ArrayList<String>();
         ArrayList<String> b = new ArrayList<String>();
         ArrayList<Integer> freq = new ArrayList<Integer>();
-        File f = new File("CausalNet.txt");
+        File f = new File("eng_small_test.txt");
 
         // File exist
         if (f.isFile()) 
         {
-            System.out.println("CausalNet.txt O");
+            System.out.println("eng_small_test.txt O");
         }
         else
         {
-            System.out.println("CausalNet.txt X");
+            System.out.println("eng_small_test.txt X");
         }
 
         // File Read
         try{
-            FileReader rw = new FileReader("CausalNet.txt");
+            FileReader rw = new FileReader("eng_small_test.txt");
             BufferedReader br = new BufferedReader( rw );
 
             String temp;
@@ -66,7 +66,7 @@ public class CCR {
 
         // freq index
         CCR myCCR = new CCR();
-        System.out.println(myCCR.getFreq(a, b, freq, "cleveland", "debate"));
+        System.out.println(myCCR.getFreq(a, b, freq, "boat", "sky"));
     }
 }
 
